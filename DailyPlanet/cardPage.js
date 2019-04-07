@@ -1,19 +1,22 @@
 import React, { Component } from 'react';
-import { Image } from 'react-native';
+import { Image, TouchableOpacity } from 'react-native';
 import { Container, Header, Content, Card, CardItem, Thumbnail, Text, Button, Icon, Left, Body, Right } from 'native-base';
+import news from "./news"
+
 
 export default class CardImageExample extends Component {
     render() {
+        //const {navigatee} = this.props.navigation;
         const{imageUri = "https://studiofreya.com/wp-content/uploads/2017/10/xreact-native-string-concatenation-hello-world-170x300.jpg.pagespeed.ic.okrM4dOdlm.webp",
              header = "Here is Header", Company = "Here is Company", likeCount = "99", dislikeCount = "99",
-             time = "1 hour ago"} = this.props;
+             time = "1 hour ago", company_image = "", content=""} = this.props;
         return (
-            <Container>
-                <Content>
+
+                    <TouchableOpacity activeOpacity={.9} onPress={() => this.props.navigation.navigate("News", {...this.props})}>
                     <Card>
                         <CardItem>
                             <Left>
-                                <Thumbnail source={{uri: imageUri}} />
+                                <Thumbnail source={{uri: company_image}} />
                                 <Body>
                                 <Text>{header}</Text>
                                 <Text note>{Company}</Text>
@@ -25,7 +28,7 @@ export default class CardImageExample extends Component {
                         </CardItem>
                         <CardItem>
                             <Left>
-                                <Button transparent>
+                                <Button transparent onPress={() => alert("bas")}>
                                     <Icon active name="thumbs-up" />
                                     <Text>{likeCount}</Text>
                                 </Button>
@@ -41,8 +44,7 @@ export default class CardImageExample extends Component {
                             </Right>
                         </CardItem>
                     </Card>
-                </Content>
-            </Container>
+                    </TouchableOpacity>
         );
     }
 }

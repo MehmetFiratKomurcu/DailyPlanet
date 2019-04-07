@@ -10,7 +10,9 @@
     "native-base": "^2.12.1",
     "react": "16.6.3",
     "react-native": "0.58.6",
-    "react-native-material-cards": "^1.0.9"
+    "react-native-gesture-handler": "^1.1.0",
+    "react-native-material-cards": "^1.0.9",
+    "react-navigation": "^3.6.1"
   },
   "devDependencies": {
     "babel-core": "7.0.0-bridge.0",

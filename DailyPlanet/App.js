@@ -1,9 +1,11 @@
 import React, {Component} from 'react';
+import {View} from 'react-native';
 import {Body, Button, Container, Header, Icon, Right, ScrollableTab, Tab, Tabs, Title, Footer, FooterTab, Text} from 'native-base';
 import Tab1 from './tabOne';
 import Tab2 from './tabTwo';
 import CardImageExample from "./cardPage";
 import Request from "./Request"
+import Tab3 from "./news"
 
 export default class TabsScrollableExample extends Component {
 
@@ -34,23 +36,38 @@ export default class TabsScrollableExample extends Component {
                 </Header>
                 <Tabs renderTabBar={() => <ScrollableTab/>}>
                     <Tab heading="All">
-                        <Tab2 data={this.state.data.records}/>
+                        <Tab2 navigation={this.props.navigation} data={this.state.data.records}/>
                     </Tab>
-                    <Tab heading="Spor">
-                        <Tab1/>
-                    </Tab>
-                    <Tab heading="Magazin">
-                        <Tab2/>
+                    <Tab heading="Sport">
+                        <Tab2 navigation={this.props.navigation} data={this.state.data.records}/>
                     </Tab>
                     <Tab heading="Economy">
-                        <Tab1 name={"mehöet"} abc={"564545"} xyz={"sdfdf"}/>
+                        <Tab2 navigation={this.props.navigation} data={this.state.data.records}/>
                     </Tab>
-                    <Tab heading="Food">
-                        <Tab2/>
+                    <Tab heading="Politics">
+                        <Tab2 navigation={this.props.navigation} data={this.state.data.records}/>
                     </Tab>
-                    <Tab heading="Tab5">
-                        <CardImageExample/>
+                    <Tab heading="Life">
+                        <Tab2 navigation={this.props.navigation} data={this.state.data.records}/>
                     </Tab>
+                    <Tab heading="Latest">
+                        <Tab2 navigation={this.props.navigation} data={this.state.data.records}/>
+                    </Tab>
+                    {/*<Tab heading="Spor">*/}
+                    {/*    <Tab1/>*/}
+                    {/*</Tab>*/}
+                    {/*<Tab heading="Magazin">*/}
+                    {/*    <Tab3/>*/}
+                    {/*</Tab>*/}
+                    {/*<Tab heading="Economy">*/}
+                    {/*    <Tab1 name={"mehmet"} abc={"564545"} xyz={"sdfdf"}/>*/}
+                    {/*</Tab>*/}
+                    {/*<Tab heading="Food">*/}
+                    {/*    <Tab2/>*/}
+                    {/*</Tab>*/}
+                    {/*<Tab heading="Tab5">*/}
+                    {/*    <CardImageExample/>*/}
+                    {/*</Tab>*/}
                 </Tabs>
             </Container>
         );
