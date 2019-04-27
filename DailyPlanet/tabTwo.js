@@ -14,8 +14,8 @@ export default class TabTwo extends Component {
         return(
 
             <CardImageExample  navigation={this.props.navigation} imageUri={imageUril} header={item.title} likeCount={item.like_count}
-                               dislikeCount={item.dislike_count} time={item.date_time} Company={item.company_name}
-                               company_image={com_image} content={item.content}/>
+                               dislikeCount={item.dislike_count} time={item.date_time} view_count = {item.view_count} Company={item.company_name}
+                               company_image={com_image} content={item.content} newsId={item.id} />
 
         )
     }

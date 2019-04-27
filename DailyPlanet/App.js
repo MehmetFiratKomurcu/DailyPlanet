@@ -7,10 +7,21 @@ import CardImageExample from "./cardPage";
 import Request from "./Request"
 import Tab3 from "./news"
 
-export default class TabsScrollableExample extends Component {
+export default class App extends Component {
 
     state = {
         data: []
+    }
+
+    constructor(){
+        super();
+        this.refresh = this.refresh.bind(this);
+        setTimeout(this.refresh, 2000);
+    };
+
+    refresh(){
+        this.componentDidMount();
+        this.forceUpdate();
     }
 
     componentDidMount(): void {
@@ -26,6 +37,12 @@ export default class TabsScrollableExample extends Component {
         })
     }
 
+    shouldComponentUpdate(nextProps: Readonly<P>, nextState: Readonly<S>, nextContext: any): boolean {
+        this.refresh();
+        return true;
+    }
+
+
     render() {
         return (
             <Container>
@@ -33,6 +50,11 @@ export default class TabsScrollableExample extends Component {
                     <Body>
                         <Title>Daily Planet</Title>
                     </Body>
+                    <Button transparent onPress={() => {this.refresh()}}>
+                        <Text>
+                            Refresh
+                        </Text>
+                    </Button>
                 </Header>
                 <Tabs renderTabBar={() => <ScrollableTab/>}>
                     <Tab heading="All">
